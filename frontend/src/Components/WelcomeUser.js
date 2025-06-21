@@ -15,6 +15,7 @@ const WelcomeUser = () => {
 
     const { setUsername ,setSocket, setChatContent, setAvatar  } = useAppContext();
 
+    // Load saved username and avatar from localStorage (if available)
     useEffect(() => {
       const stored = localStorage.getItem('username');
       const storedAvatar = localStorage.getItem('avatar');
@@ -24,14 +25,15 @@ const WelcomeUser = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
   
     setError('')
     const trimmed = input.trim();
+    
     if (!trimmed || loading){ 
       setError('Username cannot be empty.')
       return
     };
+    // Check internet connection before trying to connect
     if (!navigator.onLine) {
       setError("You are offline. Please check your connection.");
       return;
@@ -40,17 +42,19 @@ const WelcomeUser = () => {
     setLoading(true);
   
     // Create WebSocket connection
-    const ws = new WebSocket('ws://localhost:5000');
+    const ws = new WebSocket('wss://chatr-real-time-chat-app.onrender.com/');
     let errorHandled = false;
 
-      ws.onopen = () => {
-        ws.send(JSON.stringify({ type: 'intro', username: trimmed, avatar: selectedAvatar }));
-      };
+    // When connection is open, send intro message with username and avatar
+    ws.onopen = () => {
+      ws.send(JSON.stringify({ type: 'intro', username: trimmed, avatar: selectedAvatar }));
+    };
       
 
       ws.onmessage = (event) => {
         const data = JSON.parse(event.data);
     
+        // If username is already taken
         if (data.type === 'error') {
           setError(data.message); 
           errorHandled = true; 
@@ -59,6 +63,7 @@ const WelcomeUser = () => {
           return;
         }
     
+        // If connection is successful, store user and chat data
         if (data.type === 'history') {
           localStorage.setItem('username', trimmed); 
           localStorage.setItem('avatar', selectedAvatar);
@@ -70,6 +75,7 @@ const WelcomeUser = () => {
         }
       };
     
+      // Handle connection error
       ws.onerror = (err) => {
         setError('Failed to connect to server.');
         toast.error('Failed to connect to server.');
@@ -77,6 +83,7 @@ const WelcomeUser = () => {
         setLoading(false);
       };
 
+      // Show toast only if error wasn't already shown
       ws.onclose = () => {
         if (!errorHandled) {
           toast.info('Disconnected from server.');
@@ -85,10 +92,13 @@ const WelcomeUser = () => {
       };
   };
 
+  // Handle avatar selection
   const handleAvatarClick = (avatar) => {
     setSelectedAvatar(avatar);
-    localStorage.setItem('avatar', avatar); // Optional: persist
+    localStorage.setItem('avatar', avatar);
   };
+
+  // List of emojis user can choose from
   const avatarList = [ '👨🏻', '👩🏻', '🐱', '🐶', '🦊', '🐵', '👽'];
  
 
@@ -115,6 +125,7 @@ const WelcomeUser = () => {
         required
       />
       
+      {/* Avatar Selection UI */}
       <>
       <label>Select your avatar:</label>
       <div className={styles.avatarList}>

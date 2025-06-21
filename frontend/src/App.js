@@ -11,6 +11,7 @@ function App() {
   const { theme , username, socket} = useAppContext();
 
   useEffect(() => {
+    // Apply the current theme to the body whenever it changes
     document.body.className = theme; 
   }, [theme]);
   
@@ -24,6 +25,7 @@ function App() {
         pauseOnHover
         theme={theme} 
       />
+      {/* If user has joined and socket is active, show chat UI. Otherwise, show join screen */}
         {username && socket ? <Chat/> : <WelcomeUser/>}
     </div>
   );

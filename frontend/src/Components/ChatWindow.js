@@ -18,6 +18,7 @@ const ChatWindow= () => {
         chatWindowRef.current?.scrollTo(0, chatWindowRef.current.scrollHeight);
     }, [chatContent]);
   
+    // Listen for incoming messages from the socket
     useEffect(() => {
       if (!socket) return;
   
@@ -31,14 +32,15 @@ const ChatWindow= () => {
       };
   
       return () => {
-        socket.close();
+        socket.close(); // Cleanup on unmount
       };
     }, [socket]);
 
-
+    // Handles sending a new message
     const handleMessageSend = (event) => {
         event.preventDefault()
         
+        // Hide emoji picker after sending
         if(showEmojiPicker) setShowEmojiPicker(prev => !prev)
 
         if (!message.trim()) {
@@ -58,6 +60,7 @@ const ChatWindow= () => {
         setMessage('');
     }
 
+    // Add selected emoji to message input
     const handleEmojiClick = (emojiData) => {
         setMessage((prev) => prev + emojiData.emoji);
     }
@@ -67,14 +70,17 @@ const ChatWindow= () => {
     return (<section className={styles.chatWindow}>
         <section className={styles.messages} ref={chatWindowRef}>
 
+            {/* Message list section */}
             {chatContent.length > 0 && chatContent.map((message, index) => {
                return <Message key={index} message={message}/>
             })}
 
+            {/* Show this if there are no messages */}
             {(Array.isArray(chatContent) && chatContent?.length === 0) && <p>No messages yet.</p>}
          
         </section> 
-       
+
+        {/* Input and emoji picker section */}
         <section className={styles.sendMessage}> 
             <div className={`${styles.emojiPickerWrapper} ${showEmojiPicker ? styles.show : styles.hide}`}>
                 <EmojiPicker onEmojiClick={handleEmojiClick} height={400} width={400} theme={theme} />

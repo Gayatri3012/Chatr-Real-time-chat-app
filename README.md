@@ -6,14 +6,13 @@ A real-time chat application built using the **MERN Stack** (MongoDB, Express.js
 
 ## 🚀 Features
 
-- Real-time messaging via WebSocket (`ws` module)
-- Chat history (last 50 messages) shown to new users
--  Avatar selection during join
-- Join/leave handling
-- Light/Dark mode toggle
-- Error handling (offline, username conflicts)
-- Toast notifications
-
+- Real-time chat functionality using WebSocket (`ws` module)
+- Persistent chat history (last 50 messages) displayed to new users upon joining
+- Avatar selection during user onboarding for personalization
+- Dynamic handling of user join and disconnect events
+- Light and Dark theme toggle for enhanced user experience
+- Robust error handling (e.g., network issues, duplicate usernames)
+- User-friendly toast notifications for system feedback
 ---
 
 ## 📦 Tech Stack
@@ -60,8 +59,8 @@ A real-time chat application built using the **MERN Stack** (MongoDB, Express.js
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/.git
-cd mern-chat-app
+git clone https://github.com/Gayatri3012/Chatr-Real-time-chat-app.git
+cd Chatr-Real-time-chat-app
 ```
 
 ---
@@ -145,7 +144,7 @@ npm start
   - Chat interface with message bubbles, avatars, timestamps.
   - Real-time UI updates on receiving messages.
   - Auto scroll-to-bottom on new messages.
-  - Toast notifications (via **React Toastify**) for system events (joins/disconnects).
+  - Toast notifications (via **React Toastify**).
 
 ###  WebSocket Communication Flow
 
@@ -183,15 +182,15 @@ User types → message sent via WebSocket → backend saves it in DB → backend
 
 ## 🌐 Deployed Application
 
-- **Frontend**: [Vercel Link](https://your-vercel-app.vercel.app)
-- **Backend**: [Render/Heroku Link](https://your-backend-url.onrender.com)
+- **Frontend**: [Vercel Link](https://chatr-real-time-chat-app.vercel.app/)
+- **Backend**: [Render Link](https://chatr-real-time-chat-app.onrender.com)
 
 > 💡 Note: The backend may take 30–60 seconds to wake up cause it's hosted on Render (due to free-tier idling).
 
 ## Author
 
 > Gayatri Takawale  
-> GitHub: [github.com/gayatritakawale](https://github.com/gayatritakawale)
+> GitHub: [github.com/Gayatri3012](https://github.com/Gayatri3012)
 
 
 ---
