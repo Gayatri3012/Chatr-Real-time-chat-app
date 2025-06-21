@@ -1,0 +1,115 @@
+.modeToggleDiv{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+}
+
+.welcomeUserform{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.welcomeUserform input{
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 8px;
+    font-size: 16px;
+    border: 1px solid rgb(189, 189, 189);
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 20px;
+}
+
+.welcomeUserform input:hover{
+    border: 1px solid rgb(71, 70, 70);
+}
+
+.welcomeUserform input:focus{
+    outline: none;
+    border: 1px solid rgb(63, 178, 255);
+    box-shadow: 0 0 5px rgba(60, 131, 245, 0.5);
+}
+
+.error {
+    border-color: rgb(207, 0, 0) !important;
+    box-shadow: 0 0 5px rgba(245, 60, 60, 0.5);
+    transition: all 0.3s ease-in-out;
+}
+
+.errorText {
+    opacity: 0;
+    transform: translateY(-5px);
+    margin: 0;
+    color: rgb(217, 5, 5);
+    font-size: 14px;
+    animation: fadeInError 0.4s ease-out forwards;
+
+}
+
+@keyframes fadeInError {
+    from {
+      opacity: 0;
+      transform: translateY(-5px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+}
+
+.avatarList {
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    flex-wrap: wrap;
+  }
+  
+.avatarOption {
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+  
+:global(body.light) .avatarOption:hover {
+    background-color: #f0f0f0;
+}
+
+:global(body.dark) .avatarOption:hover {
+    background-color: #f0f0f05e;
+}
+
+.selected {
+    border-color: #3C83F5;
+    background-color: #e6f0ff;
+}
+
+:global(body.light) .selected {
+    border-color: #3C83F5;
+    background-color: #e6f0ff;
+}
+
+:global(body.dark) .selected {
+    border-color: #3C83F5;
+    background-color: #e6f0ff4f;
+}
+
+@media (max-width: 768px) {
+ 
+    .avatarList {
+        justify-content: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+    .avatarOption {
+        font-size: 1.2rem;
+        padding: 0.3rem;
+     
+    }
+    
+}

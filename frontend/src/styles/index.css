@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+ 
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  scroll-behavior: smooth;
+  min-width: 100vw;
+  /* min-height: 100rem; */
+  overflow: hidden;
+
+}
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font-family: "Montserrat", serif;
+  line-height: 1.5;
+  color: #000000;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  overflow: hidden;
+}
+
+#root{
+  width: 100%;
+  margin: 0;
+  height: 100%;
+}
+
+body.dark{
+  background-color:hsl(222, 51%, 9%);
+  color: #e0dce4;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+input, button{
+  font-family: inherit;
+}
