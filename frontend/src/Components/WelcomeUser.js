@@ -20,7 +20,7 @@ const WelcomeUser = () => {
       const stored = localStorage.getItem('username');
       const storedAvatar = localStorage.getItem('avatar');
       if (stored) setInput(stored);
-      if (storedAvatar) setSelectedAvatar(storedAvatar);
+      if (storedAvatar) setSelectedAvatar(storedAvatar || '🐱');
     }, []);
 
   const handleSubmit = (e) => {
