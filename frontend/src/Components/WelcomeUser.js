@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 const WelcomeUser = () => {
 
     const [input, setInput] = useState('');
-    const [selectedAvatar, setSelectedAvatar] = useState('🧑‍💻');
+    const [selectedAvatar, setSelectedAvatar] = useState('🐱');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
 
