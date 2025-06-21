@@ -270,7 +270,7 @@
     }
 
     .chatWindow{
-        margin: 10px 0;
+        margin: 10px 0 20px;
     }
 
     .messages{
@@ -287,6 +287,9 @@
         scroll-behavior: smooth;
     }
     
+    .Header{
+        margin-top: 10px;
+    }
     
 
     .message{
