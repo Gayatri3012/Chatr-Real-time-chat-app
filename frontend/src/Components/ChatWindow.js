@@ -83,7 +83,7 @@ const ChatWindow= () => {
         {/* Input and emoji picker section */}
         <section className={styles.sendMessage}> 
             <div className={`${styles.emojiPickerWrapper} ${showEmojiPicker ? styles.show : styles.hide}`}>
-                <EmojiPicker onEmojiClick={handleEmojiClick} height={400} width={400} theme={theme} />
+                <EmojiPicker onEmojiClick={handleEmojiClick} height={300} width={300} theme={theme} />
             </div>
             
             <form onSubmit={handleMessageSend} className={styles.messageInput}>
