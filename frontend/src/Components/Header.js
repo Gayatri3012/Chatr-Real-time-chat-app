@@ -26,7 +26,7 @@ const Header = () => {
 
   return (<header className={styles.Header}>
      {/* Show the user’s avatar and username */}
-    <h2><span>{avatar || '🐱'}</span>  {username}</h2>
+    <h2 style={{paddingLeft: '5px'}}><span>{avatar || '🐱'}</span>  {username}</h2>
     <div>
        {/* Toggle for light/dark mode */}
       <ModeToggleButton />

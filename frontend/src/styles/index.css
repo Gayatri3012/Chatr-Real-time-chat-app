@@ -36,11 +36,17 @@ body {
   overflow: hidden;
 }
 
-#root{
+html, body, #root {
+  height: 100%;
   width: 100%;
   margin: 0;
-  height: 100%;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: center; /* horizontal centering */
+  align-items: center;     /* vertical centering */
 }
+
 
 body.dark{
   background-color:hsl(222, 51%, 9%);
